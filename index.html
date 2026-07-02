@@ -19,6 +19,10 @@
             margin: 0;
             padding: 0;
             box-sizing: border-box;
+            user-select: none;
+            -webkit-user-select: none;
+            -moz-user-select: none;
+            -ms-user-select: none;
         }
 
         body {
@@ -31,6 +35,126 @@
             padding: 24px;
             -webkit-font-smoothing: antialiased;
             -moz-osx-font-smoothing: grayscale;
+            user-select: none;
+            -webkit-user-select: none;
+            -moz-user-select: none;
+            -ms-user-select: none;
+            position: relative;
+        }
+
+        .ad-banner-top {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 100;
+            background: rgba(99, 102, 241, 0.06);
+            backdrop-filter: blur(24px);
+            -webkit-backdrop-filter: blur(24px);
+            border-bottom: 1px solid rgba(99, 102, 241, 0.15);
+            padding: 14px 24px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 16px;
+            flex-wrap: wrap;
+        }
+
+        .ad-banner-top span {
+            color: #a5b4fc;
+            font-size: 0.85rem;
+            font-weight: 500;
+            letter-spacing: 0.04em;
+        }
+
+        .ad-banner-top a {
+            color: #c7d2fe;
+            font-weight: 600;
+            font-size: 0.9rem;
+            text-decoration: none;
+            background: rgba(99, 102, 241, 0.2);
+            border: 1px solid rgba(99, 102, 241, 0.3);
+            padding: 8px 20px;
+            border-radius: 9999px;
+            transition: all 0.2s;
+            letter-spacing: 0.03em;
+            pointer-events: auto;
+            user-select: none;
+        }
+
+        .ad-banner-top a:hover {
+            background: rgba(99, 102, 241, 0.35);
+            border-color: rgba(99, 102, 241, 0.5);
+            box-shadow: 0 0 20px rgba(99, 102, 241, 0.3);
+        }
+
+        .ad-banner-bottom {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            z-index: 100;
+            background: rgba(99, 102, 241, 0.04);
+            backdrop-filter: blur(24px);
+            -webkit-backdrop-filter: blur(24px);
+            border-top: 1px solid rgba(99, 102, 241, 0.1);
+            padding: 12px 24px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+
+        .ad-banner-bottom .ad-tag {
+            color: #818cf8;
+            font-size: 0.8rem;
+            font-weight: 500;
+            letter-spacing: 0.05em;
+            text-transform: uppercase;
+        }
+
+        .ad-banner-bottom .ad-text {
+            color: #94a3b8;
+            font-size: 0.8rem;
+            letter-spacing: 0.02em;
+        }
+
+        .ad-banner-bottom a {
+            color: #c7d2fe;
+            font-weight: 600;
+            font-size: 0.85rem;
+            text-decoration: none;
+            background: rgba(99, 102, 241, 0.15);
+            border: 1px solid rgba(99, 102, 241, 0.25);
+            padding: 7px 18px;
+            border-radius: 9999px;
+            transition: all 0.2s;
+            pointer-events: auto;
+            user-select: none;
+        }
+
+        .ad-banner-bottom a:hover {
+            background: rgba(99, 102, 241, 0.3);
+            border-color: rgba(99, 102, 241, 0.45);
+            box-shadow: 0 0 16px rgba(99, 102, 241, 0.25);
+        }
+
+        .ad-sparkle {
+            display: inline-block;
+            animation: sparkle 1.8s ease-in-out infinite;
+        }
+
+        @keyframes sparkle {
+            0%,
+            100% {
+                opacity: 0.4;
+                transform: scale(0.9);
+            }
+            50% {
+                opacity: 1;
+                transform: scale(1.2);
+            }
         }
 
         .card {
@@ -39,31 +163,69 @@
             border-radius: 24px;
             padding: 64px 48px;
             text-align: center;
-            max-width: 480px;
+            max-width: 520px;
             width: 100%;
             backdrop-filter: blur(32px);
             -webkit-backdrop-filter: blur(32px);
             box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5);
+            position: relative;
+            z-index: 1;
+            user-select: none;
+            -webkit-user-select: none;
+            -moz-user-select: none;
+            -ms-user-select: none;
+            margin-top: 60px;
+            margin-bottom: 60px;
         }
 
         .brand {
             display: inline-flex;
             align-items: center;
-            gap: 8px;
+            gap: 10px;
             font-size: 0.8rem;
             font-weight: 500;
             letter-spacing: 0.12em;
             text-transform: uppercase;
             color: var(--muted);
             margin-bottom: 40px;
+            user-select: none;
+            -webkit-user-select: none;
+            -moz-user-select: none;
+            -ms-user-select: none;
         }
 
         .brand-dot {
-            width: 6px;
-            height: 6px;
-            background: var(--accent);
+            width: 5px;
+            height: 5px;
+            background: #ef4444;
             border-radius: 50%;
-            box-shadow: 0 0 12px rgba(99, 102, 241, 0.5);
+            box-shadow: 0 0 4px #ef4444, 0 0 8px rgba(239, 68, 68, 0.5);
+            animation: breathe 2.6s ease-in-out infinite;
+        }
+
+        @keyframes breathe {
+            0%,
+            100% {
+                transform: scale(1);
+                opacity: 0.6;
+                box-shadow: 0 0 3px #ef4444, 0 0 6px rgba(239, 68, 68, 0.3);
+            }
+            50% {
+                transform: scale(1.4);
+                opacity: 1;
+                box-shadow: 0 0 6px #ef4444, 0 0 12px rgba(239, 68, 68, 0.6);
+            }
+        }
+
+        .download-wrapper {
+            position: relative;
+            display: inline-block;
+            width: 100%;
+            margin-bottom: 32px;
+            user-select: none;
+            -webkit-user-select: none;
+            -moz-user-select: none;
+            -ms-user-select: none;
         }
 
         .download-btn {
@@ -81,17 +243,60 @@
             background: rgba(255, 255, 255, 0.04);
             border: 1px solid rgba(255, 255, 255, 0.12);
             border-radius: var(--radius);
-            cursor: not-allowed;
+            cursor: pointer;
             opacity: 0.5;
-            transition: opacity 0.2s;
-            margin-bottom: 32px;
-            pointer-events: none;
+            transition: all 0.2s;
+            pointer-events: auto;
             user-select: none;
+            -webkit-user-select: none;
+            -moz-user-select: none;
+            -ms-user-select: none;
+            position: relative;
+            text-decoration: none;
+        }
+
+        .download-btn:hover {
+            opacity: 0.8;
+            border-color: rgba(99, 102, 241, 0.4);
+            box-shadow: 0 0 24px rgba(99, 102, 241, 0.2);
         }
 
         .download-btn .icon {
             font-size: 1.4rem;
             opacity: 0.7;
+            user-select: none;
+            -webkit-user-select: none;
+            -moz-user-select: none;
+            -ms-user-select: none;
+        }
+
+        .cursor-tooltip {
+            position: fixed;
+            pointer-events: none;
+            z-index: 9999;
+            background: rgba(255, 255, 255, 0.06);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            color: #a5b4fc;
+            font-size: 0.8rem;
+            font-weight: 500;
+            letter-spacing: 0.03em;
+            padding: 10px 18px;
+            border-radius: 9999px;
+            white-space: nowrap;
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.4);
+            opacity: 0;
+            transition: opacity 0.15s ease;
+            transform: translate(16px, 16px);
+            user-select: none;
+            -webkit-user-select: none;
+            -moz-user-select: none;
+            -ms-user-select: none;
+        }
+
+        .cursor-tooltip.visible {
+            opacity: 1;
         }
 
         .coming-soon {
@@ -105,6 +310,10 @@
             border: 1px solid rgba(248, 113, 113, 0.2);
             padding: 10px 24px;
             border-radius: 9999px;
+            user-select: none;
+            -webkit-user-select: none;
+            -moz-user-select: none;
+            -ms-user-select: none;
         }
 
         .footer-text {
@@ -112,20 +321,44 @@
             font-size: 0.8rem;
             color: var(--muted);
             letter-spacing: 0.03em;
+            user-select: none;
+            -webkit-user-select: none;
+            -moz-user-select: none;
+            -ms-user-select: none;
         }
     </style>
 </head>
 <body>
+
+    <div class="ad-banner-top">
+        <span class="ad-sparkle">✦</span>
+        <span>Suchst du nach Roblox Scripts?</span>
+        <a href="https://vexyrondev.github.io/Vexyron.com/" target="_blank" rel="noopener noreferrer">Hier findest du sie</a>
+        <span class="ad-sparkle">✦</span>
+    </div>
+
+    <div class="ad-banner-bottom">
+        <span class="ad-tag">Werbung</span>
+        <span class="ad-text">Roblox Scripts & mehr auf</span>
+        <a href="https://vexyrondev.github.io/Vexyron.com/" target="_blank" rel="noopener noreferrer">Vexyron</a>
+        <span class="ad-text">— Jetzt entdecken</span>
+        <span class="ad-sparkle">⚡</span>
+    </div>
+
+    <div class="cursor-tooltip" id="cursorTooltip">Free Games Incoming</div>
+
     <div class="card">
         <div class="brand">
             <span class="brand-dot"></span> GlassGame
         </div>
 
-        <button class="download-btn" disabled>
-            <span class="icon">↓</span>
-            Download
-            <span class="icon">↓</span>
-        </button>
+        <div class="download-wrapper">
+            <a href="https://vexyrondev.github.io/Vexyron.com/" target="_blank" rel="noopener noreferrer" class="download-btn" id="downloadBtn">
+                <span class="icon">↓</span>
+                Download
+                <span class="icon">↓</span>
+            </a>
+        </div>
 
         <div class="coming-soon">
             Coming Soon
@@ -133,5 +366,82 @@
 
         <p class="footer-text">In Kürze verfügbar.</p>
     </div>
+
+    <script>
+        const downloadBtn = document.getElementById('downloadBtn');
+        const cursorTooltip = document.getElementById('cursorTooltip');
+
+        downloadBtn.addEventListener('mouseenter', () => {
+            cursorTooltip.classList.add('visible');
+        });
+
+        downloadBtn.addEventListener('mouseleave', () => {
+            cursorTooltip.classList.remove('visible');
+        });
+
+        document.addEventListener('mousemove', (e) => {
+            if (cursorTooltip.classList.contains('visible')) {
+                cursorTooltip.style.left = e.clientX + 'px';
+                cursorTooltip.style.top = e.clientY + 'px';
+            }
+        });
+
+        // === KOPIERSCHUTZ ===
+        document.addEventListener('contextmenu', (e) => {
+            e.preventDefault();
+            return false;
+        });
+
+        document.addEventListener('keydown', (e) => {
+            if ((e.ctrlKey || e.metaKey) && (e.key === 'c' || e.key === 'x' || e.key === 'v')) {
+                e.preventDefault();
+                return false;
+            }
+            if ((e.ctrlKey || e.metaKey) && e.key === 'u') {
+                e.preventDefault();
+                return false;
+            }
+            if ((e.ctrlKey || e.metaKey) && e.key === 's') {
+                e.preventDefault();
+                return false;
+            }
+            if ((e.ctrlKey || e.metaKey) && e.key === 'p') {
+                e.preventDefault();
+                return false;
+            }
+            if ((e.ctrlKey || e.metaKey) && e.shiftKey && e.key === 'i') {
+                e.preventDefault();
+                return false;
+            }
+            if (e.key === 'F12') {
+                e.preventDefault();
+                return false;
+            }
+            if ((e.ctrlKey || e.metaKey) && e.shiftKey && e.key === 'j') {
+                e.preventDefault();
+                return false;
+            }
+        });
+
+        document.addEventListener('dragstart', (e) => {
+            e.preventDefault();
+            return false;
+        });
+
+        document.addEventListener('selectstart', (e) => {
+            e.preventDefault();
+            return false;
+        });
+
+        document.addEventListener('copy', (e) => {
+            e.preventDefault();
+            return false;
+        });
+
+        document.addEventListener('cut', (e) => {
+            e.preventDefault();
+            return false;
+        });
+    </script>
 </body>
 </html>
