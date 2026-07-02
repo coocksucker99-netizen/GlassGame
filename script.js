@@ -24,3 +24,4 @@ window.addEventListener("blur", () => {
 window.addEventListener("focus", () => {
     bgMusic.play().catch(() => {});
 });
+
