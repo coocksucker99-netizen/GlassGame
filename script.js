@@ -1,20 +1,26 @@
-const music = document.getElementById("bg-music");
+const bgMusic = document.getElementById("bg-music");
 
+// Start nur nach Klick
 window.addEventListener("click", () => {
-    music.volume = 0.35;
-    music.play().catch(() => {});
+    bgMusic.volume = 0.35;
+    bgMusic.play().catch(() => {});
 }, { once: true });
 
-// Tab wechseln → sofort stoppen
+// TAB WECHSEL -> PAUSE
 document.addEventListener("visibilitychange", () => {
     if (document.hidden) {
-        music.pause();
-        music.currentTime = 0; // optional: komplett reset
+        bgMusic.pause();
+    } else {
+        bgMusic.play().catch(() => {});
     }
 });
 
-// Seite verlassen → stoppen
-window.addEventListener("pagehide", () => {
-    music.pause();
-    music.currentTime = 0;
+// TAB VERLASSEN / MINIMIEREN
+window.addEventListener("blur", () => {
+    bgMusic.pause();
+});
+
+// zurück in Fenster
+window.addEventListener("focus", () => {
+    bgMusic.play().catch(() => {});
 });
